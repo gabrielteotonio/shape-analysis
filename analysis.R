@@ -10,14 +10,15 @@ for (i in 1:7)
   df <- data.frame(x = true_density[,i], y = approx_density[,i])
   df.m <- melt(df)
   i <- i
-  p <- ggplot(df.m, aes(x=value))+
-          geom_density(colour="red", alpha=.3, adjust = 1)+ 
-          geom_density(colour="blue", alpha=.3, adjust = 2)+ 
+  p <- ggplot(df.m, aes(x = value, color = variable)) +
+          geom_density(alpha=.3) +
+          labs(title = paste("Scenario", i),
+               x = "x",
+               y = "Density") +
+          scale_color_discrete(name = "Density", labels = c("True", "Saddlepoint")) +
           theme_bw()
   plots[[i]] <<- p
 })
 
 
-grid.arrange(plots[1], plots[2], plots[3],
-             plots[4], plots[5], plots[6],
-             plots[7])
+plots[i] # Change i to obtain the results
