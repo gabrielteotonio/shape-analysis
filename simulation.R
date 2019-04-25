@@ -46,3 +46,6 @@ for (i in 1:7) {
 saveRDS(true_density, "data/true_density.RDS")
 saveRDS(approx_density, "data/approx_density.RDS")
 saveRDS(mod_diff, "data/mod_diff.RDS")
+
+# Fisher B. Complex ----
+# none code add yet...
